@@ -74,7 +74,9 @@ plt.title('Heatmap of Pclass vs Survived')
 plt.show()
 ~~~
 # OUTPUT
-
+![image](https://github.com/RakshithaK11/EXNO2DS/assets/139336455/58051b6b-3c19-4619-b165-9fbbc81a2920)
+![image](https://github.com/RakshithaK11/EXNO2DS/assets/139336455/db2ab75d-cc65-4977-b4cb-5036cf4c660d)
+![image](https://github.com/RakshithaK11/EXNO2DS/assets/139336455/ddd7b14c-c82b-4eaa-b7cb-6abf5b8b9a81)
 
 # RESULT
 Hence the Exploratory Data Analysis on the data set is performed succefully
