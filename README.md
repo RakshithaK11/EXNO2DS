@@ -22,8 +22,59 @@ STEP 7: Use cross tabulation method to quantitatively analyze the relationship b
 
 STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
 
-## CODING AND OUTPUT
-        <<INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS>>
+## CODING
+~~~
+NAME: Rakshitha K
+REGISTER NUMBER: 212223110039
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy import stats
+
+df = pd.read_csv("/content/titanic_dataset (2).csv")
+
+
+df.fillna(df.mean(), inplace=True)
+
+
+plt.figure(figsize=(10, 6))
+sns.boxplot(data=df.select_dtypes(include=np.number))  
+plt.title('Boxplot of Numeric Data')
+plt.show()
+
+
+numeric_cols = df.select_dtypes(include=np.number).columns
+for col in numeric_cols:
+    q1 = df[col].quantile(0.25)
+    q3 = df[col].quantile(0.75)
+    iqr = q3 - q1
+    low = q1 - 1.5 * iqr
+    high = q3 + 1.5 * iqr
+    df = df[((df[col] >= low) & (df[col] <= high))]
+
+plt.figure(figsize=(8, 6))
+sns.countplot(x='Sex', data=df)
+plt.title('Countplot of Sex')
+plt.show()
+
+plt.figure(figsize=(8, 6))
+sns.displot(df['Age'], kde=True)
+plt.title('Distribution of Age')
+plt.show()
+
+cross_tab = pd.crosstab(df['Pclass'], df['Survived'])
+print("Cross Tabulation:")
+print(cross_tab)
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(cross_tab, annot=True)
+plt.title('Heatmap of Pclass vs Survived')
+plt.show()
+~~~
+# OUTPUT
+
 
 # RESULT
-        <<INCLUDE YOUR RESULT HERE>>
+Hence the Exploratory Data Analysis on the data set is performed succefully
